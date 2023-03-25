@@ -11,7 +11,16 @@ public class Dominos extends PizzaFactory {
 
     @Override
     public Food getPizza(String pizzaName) {
-        return null;
+        if (pizzaName.equals("small")){
+            return new Pizza("small");
+        }
+        else if (pizzaName.equals("medium")){
+            return new Pizza("medium");
+        }
+        else if (pizzaName.equals("large")){
+            return new Pizza("large");
+        }
+        return new Pizza();
     }
 
     @Override

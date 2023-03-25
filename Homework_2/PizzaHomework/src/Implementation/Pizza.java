@@ -9,5 +9,13 @@ public class Pizza extends Food {
     }
     public Pizza(String size) {
         this.size = size;
+        this.description = size + " size Pizza";
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "size='" + size + '\'' +
+                '}';
     }
 }
