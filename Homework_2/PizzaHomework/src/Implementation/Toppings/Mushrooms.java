@@ -5,8 +5,13 @@ import Contracts.Toppings;
 
 public class Mushrooms extends Toppings {
     protected Food pizza;
+
+    public Mushrooms(Food pizza) {
+        this.pizza = pizza;
+    }
+
     @Override
-    public String getDescription() {
-        return pizza.getDescription() + " with mushrooms";
+    public String eat() {
+        return pizza.eat() + " with mushrooms";
     }
 }

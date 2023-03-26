@@ -10,8 +10,8 @@ public class Bacon extends Toppings {
         this.pizza = pizza;
     }
     @Override
-    public String getDescription() {
-        return pizza.getDescription() + " with bacon";
+    public String eat() {
+        return pizza.eat() + " with bacon";
     }
 
 }
