@@ -9,4 +9,7 @@ public abstract class MessagingApp {
 
     public abstract void sendMessage();
 
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+    }
 }
