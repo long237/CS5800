@@ -7,4 +7,6 @@ public abstract class Food {
     public String eat() {
         return description;
     }
+
+    public abstract double cost();
 }

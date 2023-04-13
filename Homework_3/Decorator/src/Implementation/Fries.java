@@ -2,10 +2,10 @@ package Implementation;
 
 import Contracts.Food;
 
-public class Pizza extends Food {
-    private static final double COST = 1.50;
-    public Pizza() {
-        description = "Plain Pizza";
+public class Fries extends Food {
+    public static final double COST = 2.50;
+    public Fries() {
+        description = "Plain Fries";
     }
 
     public double cost() {
@@ -14,7 +14,7 @@ public class Pizza extends Food {
 
     @Override
     public String toString() {
-        return "Pizza{" +
+        return "Fries{" +
                 "description='" + description + '\'' +
                 '}';
     }

@@ -1,80 +1,56 @@
-import Contracts.FactoryProducer;
 import Contracts.Food;
-import Contracts.PizzaFactory;
-import Contracts.Toppings;
-import Implementation.Factory.FactoryMaker;
-import Implementation.Pizza;
-import Implementation.Toppings.*;
+import Implementation.*;
 
 public class Main {
     public static void main(String[] args) {
-        FactoryProducer factoryProducer = new FactoryMaker();
+        System.out.println("Hello world!");
 
-        //Create Pizza hut
-        PizzaFactory pizzaHut = factoryProducer.getFactory("PizzaHut");
-        PizzaFactory dominos = factoryProducer.getFactory("Dominos");
-        PizzaFactory ceasars = factoryProducer.getFactory("LittleCeasars");
+        // Pizza
+        Food pizza = new Pizza();
+        pizza = new Onions(pizza);
+        pizza = new Pesto(pizza);
+        pizza = new Spinach(pizza);
 
-//        System.out.println(pizzaHut);
-//        System.out.println(dominos);
-//        System.out.println(ceasars);
+        System.out.println(pizza.eat());
+        System.out.println("Cost of pizza is: " + pizza.cost());
 
-        // Creating Large Pizza for Pizza Hut
-        Food largeHutPizza = pizzaHut.getPizza("large");
-        largeHutPizza = new Bacon(largeHutPizza);
-        largeHutPizza = new Mushrooms(largeHutPizza);
-        largeHutPizza = new Spinach(largeHutPizza);
+        //Burger
+        Food burger = new Burger();
+        burger = new Mushrooms(burger);
+        burger = new Onions(burger);
+        burger = new Peppers(burger);
 
-        System.out.println("Pizza for Pizza Hut factory: ");
-        System.out.println(largeHutPizza.eat());
+        //Fries
+        Food fries = new Fries();
+        fries = new Chili(fries);
+        fries = new Peppers(fries);
 
-        // Creating Small Pizza with 2 toppings for pizza hut
-        Food smallHutPizza = pizzaHut.getPizza("small");
-        smallHutPizza = new Ham(smallHutPizza);
-        smallHutPizza = new ExtraCheese(smallHutPizza);
+        System.out.println(burger.eat());
+        System.out.println("Cost of pizza is: " + burger.cost());
 
-        System.out.println(smallHutPizza.eat());
-        System.out.println("");
+        Order customerOrder = new Order();
+        customerOrder.addItems(burger);
+        customerOrder.addItems(pizza);
+        customerOrder.addItems(fries);
+        double total = customerOrder.getCost();
+        System.out.println("Customer Orders: " + customerOrder);
+        System.out.println("Total: " + total);
 
-        // Create Pizza for Little Ceasars with 8 toppings
-        Food mediumCeasarsPizza = ceasars.getPizza("medium");
-        mediumCeasarsPizza = new Olives(mediumCeasarsPizza);
-        mediumCeasarsPizza = new Onions(mediumCeasarsPizza);
-        mediumCeasarsPizza = new Pepperoni(mediumCeasarsPizza);
-        mediumCeasarsPizza = new Peppers(mediumCeasarsPizza);
-        mediumCeasarsPizza = new Pesto(mediumCeasarsPizza);
-        mediumCeasarsPizza = new Beef(mediumCeasarsPizza);
-        mediumCeasarsPizza = new Sausage(mediumCeasarsPizza);
-        mediumCeasarsPizza = new TomatoAndBasil(mediumCeasarsPizza);
+        //Create Customer Loyalty
+        Loyalty customerLoyalty = new Loyalty(Level.GOLD);
+        double goldDiscount = customerLoyalty.applyDiscount(total);
+        System.out.println("Apply Gold Status for 20% discount: ");
+        System.out.println(goldDiscount);
 
-        System.out.println("Pizza for Little Ceasars factory");
-        System.out.println(mediumCeasarsPizza.eat());
+        Loyalty silverLoyalty = new Loyalty(Level.SILVER);
+        double silverDiscount = silverLoyalty.applyDiscount(total);
+        System.out.println("Apply Silver Status for 15% discount: ");
+        System.out.println(silverDiscount);
 
-        // Create Pizza for Little Ceasars with 6 toppings
-        Food smallCeasarsPizza = ceasars.getPizza("small");
-        smallCeasarsPizza = new Bacon(smallCeasarsPizza);
-        smallCeasarsPizza = new Pesto(smallCeasarsPizza);
-        smallCeasarsPizza = new Olives(smallCeasarsPizza);
-        smallCeasarsPizza = new Pesto(smallCeasarsPizza);
-        smallCeasarsPizza = new Chicken(smallCeasarsPizza);
-        smallCeasarsPizza = new Peppers(smallCeasarsPizza);
+        Loyalty bronzeLoyalty = new Loyalty(Level.BRONZE);
+        double bronzeDiscount = bronzeLoyalty.applyDiscount(total);
+        System.out.println("Apply Bronze Status for 10% discount: ");
+        System.out.println(bronzeDiscount);
 
-        System.out.println(smallCeasarsPizza.eat());
-        System.out.println("");
-
-        //Pizzas for Dominos pizzas
-        // Create Pizza for Dominos with 1 toppings
-        Food smallDominoPizza = dominos.getPizza("small");
-        smallDominoPizza = new Pesto(smallDominoPizza);
-
-        System.out.println("Pizza for Dominos Factory");
-        System.out.println(smallDominoPizza.eat());
-
-        Food largeDominoPizza = dominos.getPizza("large");
-        largeDominoPizza = new Sausage(largeDominoPizza);
-        largeDominoPizza = new Olives(largeDominoPizza);
-        largeDominoPizza = new TomatoAndBasil(largeDominoPizza);
-
-        System.out.println(largeDominoPizza.eat());
     }
 }
