@@ -3,7 +3,6 @@ import Implementation.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
         // Pizza
         Food pizza = new Pizza();
@@ -28,6 +27,7 @@ public class Main {
         System.out.println(burger.eat());
         System.out.println("Cost of pizza is: " + burger.cost());
 
+        System.out.println("--------------------");
         Order customerOrder = new Order();
         customerOrder.addItems(burger);
         customerOrder.addItems(pizza);
