@@ -13,8 +13,7 @@ public class ProxySong implements Song {
         this.title = title;
     }
 
-    public ProxySong(RealSong realSong, String title, String album, String artist, int duration) {
-        this.realSong = realSong;
+    public ProxySong(String title, String album, String artist, int duration) {
         this.title = title;
         this.album = album;
         this.artist = artist;
