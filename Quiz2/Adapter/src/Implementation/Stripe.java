@@ -1,5 +1,6 @@
 package Implementation;
 
+import Contracts.PaymentMethod;
 import Contracts.PaymentProcessor;
 
 public class Stripe implements PaymentProcessor

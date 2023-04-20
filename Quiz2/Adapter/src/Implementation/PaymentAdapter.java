@@ -1,9 +1,10 @@
 package Implementation;
 
+import Contracts.PaymentMethod;
 import Contracts.PaymentProcessor;
 
 public class PaymentAdapter implements PaymentProcessor {
-    Square paymentMethod;
+    private Square paymentMethod;
 
     public PaymentAdapter(Square paymentMethod) {
         this.paymentMethod = paymentMethod;

@@ -1,6 +1,8 @@
 package Implementation;
 
-public class Square {
+import Contracts.PaymentMethod;
+
+public class Square extends PaymentMethod {
     private int locationID;
 
     public Square(int locationID) {
