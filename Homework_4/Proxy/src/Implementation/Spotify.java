@@ -57,7 +57,8 @@ public class Spotify implements SongService {
         catch (Exception e) {}
         List<Song> result = new ArrayList<>();
         for (Song song : songs) {
-            RealSong realSong = (RealSong) song;
+            //RealSong realSong = (RealSong) song;
+            ProxySong realSong = (ProxySong) song;
             boolean IsAlbum = Objects.equals(realSong.getAlbum().toLowerCase(), album.toLowerCase());
             if (realSong != null && IsAlbum) {
                 result.add(realSong);
