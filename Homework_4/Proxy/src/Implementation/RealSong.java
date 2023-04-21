@@ -7,12 +7,14 @@ public class RealSong implements Song {
     private String album;
     private String artist;
     private int duration;
+    private int songID;
 
-    public RealSong(String title, String album, String artist, int duration) {
+    public RealSong(String title, String album, String artist, int duration, int songID) {
         this.title = title;
         this.album = album;
         this.artist = artist;
         this.duration = duration;
+        this.songID = songID;
     }
 
     public String getTitle() {
@@ -49,6 +51,6 @@ public class RealSong implements Song {
 
     @Override
     public void play() {
-        System.out.println("Paying: " + title  + "by: " + artist);
+        System.out.println("Playing: " + title  + " by: " + artist);
     }
 }

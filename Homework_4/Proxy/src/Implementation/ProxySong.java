@@ -8,16 +8,18 @@ public class ProxySong implements Song {
     private String album;
     private String artist;
     private int duration;
+    private int songID;
 
     public ProxySong (String title){
         this.title = title;
     }
 
-    public ProxySong(String title, String album, String artist, int duration) {
+    public ProxySong(String title, String album, String artist, int duration, int songID) {
         this.title = title;
         this.album = album;
         this.artist = artist;
         this.duration = duration;
+        this.songID = songID;
     }
 
     public String getTitle() {
@@ -52,10 +54,14 @@ public class ProxySong implements Song {
         this.duration = duration;
     }
 
+    public int getSongID() {
+        return songID;
+    }
+
     @Override
     public void play() {
         if (realSong == null) {
-            realSong = new RealSong(title, album, artist, duration);
+            realSong = new RealSong(title, album, artist, duration, songID);
         }
         realSong.play();
     }

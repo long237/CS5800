@@ -30,6 +30,12 @@ public class Spotify implements SongService {
 
     @Override
     public Song searchById(int songID) {
+        for (Song song: songs) {
+            ProxySong proxySong = (ProxySong) song;
+            if (proxySong.getSongID() == songID) {
+                return proxySong;
+            }
+        }
         return null;
     }
 
@@ -41,9 +47,9 @@ public class Spotify implements SongService {
         catch (Exception e) {}
         List<Song> result = new ArrayList<>();
         for (Song song : songs) {
-            RealSong realSong = (RealSong) song;
-            if (realSong != null && realSong.getTitle().contains(title)) {
-                result.add(realSong);
+            ProxySong proxySong = (ProxySong) song;
+            if (proxySong != null && proxySong.getTitle().contains(title)) {
+                result.add(proxySong);
             }
         }
         return result;
@@ -58,10 +64,10 @@ public class Spotify implements SongService {
         List<Song> result = new ArrayList<>();
         for (Song song : songs) {
             //RealSong realSong = (RealSong) song;
-            ProxySong realSong = (ProxySong) song;
-            boolean IsAlbum = Objects.equals(realSong.getAlbum().toLowerCase(), album.toLowerCase());
-            if (realSong != null && IsAlbum) {
-                result.add(realSong);
+            ProxySong proxySong = (ProxySong) song;
+            boolean IsAlbum = Objects.equals(proxySong.getAlbum().toLowerCase(), album.toLowerCase());
+            if (proxySong != null && IsAlbum) {
+                result.add(proxySong);
             }
         }
         return result;
