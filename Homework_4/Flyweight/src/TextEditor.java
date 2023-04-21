@@ -2,13 +2,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 public class TextEditor {
     private String filePath;
-    private List<Character> content;
+    private List<Character> content = new ArrayList<Character>();
     private HashMap<String, CharacterProperties> propertiesHashMap = new HashMap<>();
 
     public HashMap<String, CharacterProperties> getPropertiesHashMap() {
@@ -47,11 +48,11 @@ public class TextEditor {
         return false;
     }
 
-    public void editDocument() {
+    public void editDocument(List<Character> characters) {
         try {
             FileWriter myWriter = new FileWriter(filePath, true);
-            for (Character character : content) {
-                myWriter.write(character.toString());
+            for (Character character : characters) {
+                myWriter.write(character.toString() + "\n");
             }
             myWriter.close();
         }
@@ -73,16 +74,21 @@ public class TextEditor {
         }
     }
 
-    public void loadDocument() throws FileNotFoundException {
-        File file = new File(filePath);
-        Scanner myReader = new Scanner(file);
-        while (myReader.hasNextLine()) {
-            String line = myReader.nextLine();
-            String[] data = line.split(",");
-            CharacterProperties props = new CharacterProperties(data[1], data[2], Double.parseDouble(data[3]));
-            Character character = new Character(data[0], props);
-            content.add(character);
+    public void loadDocument() {
+        try {
+            File file = new File(filePath);
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                String line = myReader.nextLine();
+                String[] data = line.split(",");
+                CharacterProperties props = new CharacterProperties(data[1], data[2], Double.parseDouble(data[3]));
+                Character character = new Character(data[0], props);
+                content.add(character);
+            }
+            myReader.close();
         }
-        myReader.close();
+        catch (IOException e) {
+            System.out.println("Error when loading file to text editor");
+        }
     }
 }
