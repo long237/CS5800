@@ -1,13 +1,20 @@
 package Implementation;
 
 public class MessageMemento {
-    private String state;
+    private Message message;
 
-    public MessageMemento(String state){
-        this.state = state;
+    public MessageMemento(Message state){
+        this.message = state;
     }
 
-    public String getState(){
-        return state;
+    public Message getState(){
+        return message;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageMemento{" +
+                "message=" + message +
+                '}';
     }
 }
