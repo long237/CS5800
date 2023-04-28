@@ -61,7 +61,7 @@ public class User implements IterableByUser {
     }
 
     @Override
-    public Iterator user(User userToSearchWith) {
-        return null;
+    public Iterator iterator(User userToSearchWith) {
+        return this.receivedChatHistory.iterator(userToSearchWith);
     }
 }

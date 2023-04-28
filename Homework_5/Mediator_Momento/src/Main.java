@@ -2,6 +2,7 @@ import Implementation.ChatServer;
 import Implementation.User;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -121,5 +122,11 @@ public class Main {
         System.out.println();
         System.out.println("Lion received Messages: ");
         System.out.println(Lion.getReceivedChatHistory());
+
+        //Iterate messages by sender
+        Iterator senderIterator = Ash.iterator(Hibana);
+        while (senderIterator.hasNext()) {
+            System.out.println(senderIterator.next());
+        }
     }
 }
