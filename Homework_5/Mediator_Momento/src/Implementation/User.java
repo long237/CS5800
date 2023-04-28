@@ -1,9 +1,12 @@
 package Implementation;
 
+import Contracts.IterableByUser;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class User {
+public class User implements IterableByUser {
     private String userName;
     private ChatServer server;
     private ChatHistory sentChatHistory = new ChatHistory();
@@ -55,5 +58,10 @@ public class User {
         return "User{" +
                 "userName='" + userName + '\'' +
                 '}';
+    }
+
+    @Override
+    public Iterator user(User userToSearchWith) {
+        return null;
     }
 }

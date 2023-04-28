@@ -1,11 +1,18 @@
 package Implementation;
 
+import Contracts.IterableByUser;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
-public class ChatHistory {
+public class ChatHistory implements IterableByUser {
     private Stack<MessageMemento> messageMementosList = new Stack<MessageMemento>();
+
+    public Stack<MessageMemento> getMessageMementosList() {
+        return messageMementosList;
+    }
 
     public Message getLastMessageSent() {
         MessageMemento memento = messageMementosList.peek();
@@ -35,5 +42,10 @@ public class ChatHistory {
         }
         result.append("]");
         return result.toString();
+    }
+
+    @Override
+    public Iterator user(User userToSearchWith) {
+        return new SearchMessagesByUser(this, userToSearchWith);
     }
 }
