@@ -1,6 +1,7 @@
 import Implementation.ChatServer;
 import Implementation.User;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -124,6 +125,9 @@ public class Main {
         System.out.println(Lion.getReceivedChatHistory());
 
         //Iterate messages by sender
+        System.out.println();
+        System.out.println("-------------------------------");
+        System.out.println("Iterate over Ash Messages and find all message sent by Hibana");
         Iterator senderIterator = Ash.iterator(Hibana);
         while (senderIterator.hasNext()) {
             System.out.println(senderIterator.next());

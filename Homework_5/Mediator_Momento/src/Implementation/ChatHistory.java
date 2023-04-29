@@ -23,6 +23,10 @@ public class ChatHistory implements IterableByUser {
         messageMementosList.push(msgMemento);
     }
 
+    public void addAll(List<MessageMemento> messages) {
+        messageMementosList.addAll(messages);
+    }
+
     public void undo() {
         messageMementosList.pop();
     }

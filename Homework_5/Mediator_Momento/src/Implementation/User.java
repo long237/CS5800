@@ -62,6 +62,10 @@ public class User implements IterableByUser {
 
     @Override
     public Iterator iterator(User userToSearchWith) {
+        // Get all message
+        ChatHistory allMessages = new ChatHistory();
+        allMessages.addAll(receivedChatHistory.getMessageMementosList());
+        allMessages.addAll(sentChatHistory.getMessageMementosList());
         return this.receivedChatHistory.iterator(userToSearchWith);
     }
 }
