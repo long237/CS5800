@@ -7,7 +7,7 @@ public abstract class SnackDispenseHandler {
         this.next = next;
     }
 
-    public void dispenseSnack(String requestType){
+    public void dispenseSnack(Snack requestType){
         if (next != null) {
             next.dispenseSnack(requestType);
         }
