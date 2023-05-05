@@ -52,5 +52,19 @@ public class Main {
         vendingMachine.selectSnack("snickers");
         change = vendingMachine.insertMoney(CASH);
         System.out.println("Change after item: " + change);
+
+        // Buying Cheetos
+        System.out.println();
+        System.out.println("-----------------------");
+        vendingMachine.selectSnack("cheetos");
+        change = vendingMachine.insertMoney(CASH);
+        System.out.println("Change after item: " + change);
+
+        // Buying Doritos
+        System.out.println();
+        System.out.println("-----------------------");
+        vendingMachine.selectSnack("Doritos");
+        change = vendingMachine.insertMoney(CASH);
+        System.out.println("Change after item: " + change);
     }
 }
