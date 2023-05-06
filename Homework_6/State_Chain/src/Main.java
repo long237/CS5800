@@ -63,7 +63,7 @@ public class Main {
         // Buying Doritos
         System.out.println();
         System.out.println("-----------------------");
-        vendingMachine.selectSnack("Doritos");
+        vendingMachine.selectSnack("doritos");
         change = vendingMachine.insertMoney(CASH);
         System.out.println("Change after item: " + change);
     }
